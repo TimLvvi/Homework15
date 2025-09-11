@@ -53,12 +53,12 @@ public class StorageService {
     }
 
 
-    public Collection<Product> getProductMap() {
+    public Collection<Product> getProductCollection() {
         return productMap.values();
     }
 
 
-    public Collection<Article> getArticleMap() {
+    public Collection<Article> getArticleCollection() {
         return articleMap.values();
     }
 }

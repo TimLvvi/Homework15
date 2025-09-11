@@ -15,15 +15,11 @@ public class SearchService {
         this.storageService = storageService;
     }
 
-    public Set<SearchResult> search(String pattern) {
-        Set<Searchable> resultsSearchable = storageService.searchableCollection().stream()
+    public Collection<SearchResult> search(String pattern) {
+        return storageService.searchableCollection().stream()
                 .filter(searchable -> searchable != null)
                 .filter(searchable -> searchable.searchTerm().contains(pattern))
-                .collect(Collectors.toCollection(() -> new TreeSet<>()));
-        Set<SearchResult> resultsSearch = new TreeSet<>();
-        for (Searchable searchable : resultsSearchable) {
-            resultsSearch.add(SearchResult.fromSearchable(searchable));
-        }
-        return resultsSearch;
+                .map(searchable -> SearchResult.fromSearchable(searchable))
+                .collect(Collectors.toList());
     }
 }

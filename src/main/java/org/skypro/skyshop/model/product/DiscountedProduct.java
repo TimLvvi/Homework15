@@ -34,7 +34,7 @@ public class DiscountedProduct extends Product {
     @JsonIgnore
     @Override
     public String toString() {
-        return name + ": " + finalPrice
+        return getName() + ": " + finalPrice
                 + "(c учетом скидки " + percentageDiscount + "%)";
     }
 }

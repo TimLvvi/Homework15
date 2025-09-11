@@ -28,6 +28,6 @@ public class SimpleProduct extends Product {
     @JsonIgnore
     @Override
     public String toString() {
-        return name + ": " + price;
+        return getName() + ": " + price;
     }
 }

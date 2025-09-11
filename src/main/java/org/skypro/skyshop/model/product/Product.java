@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public abstract class Product implements Searchable {
-    protected String name;
+    private String name;
     private final UUID id;
 
     public Product(UUID id, String name)  {
@@ -59,6 +59,8 @@ public abstract class Product implements Searchable {
     public UUID getId() {
         return id;
     }
+
+
 }
 
 

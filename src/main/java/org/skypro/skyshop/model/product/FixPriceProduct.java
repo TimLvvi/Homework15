@@ -24,6 +24,6 @@ public class FixPriceProduct extends Product {
     @JsonIgnore
     @Override
     public String toString() {
-        return name + ": фиксированная цена " + FIX_PRICE;
+        return getName() + ": фиксированная цена " + FIX_PRICE;
     }
 }

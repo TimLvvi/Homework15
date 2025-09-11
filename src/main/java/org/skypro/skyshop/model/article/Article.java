@@ -7,14 +7,23 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Article implements Searchable {
-    public String articleTitle;
-    public String articleText;
+    private String articleTitle;
+    private String articleText;
     private final UUID id;
 
     public Article(UUID id,String articleTitle, String articleText) {
         this.id = id;
         this.articleTitle = articleTitle;
         this.articleText = articleText;
+    }
+
+
+    public String getArticleTitle() {
+        return articleTitle;
+    }
+
+    public String getArticleText() {
+        return articleText;
     }
 
     @Override
