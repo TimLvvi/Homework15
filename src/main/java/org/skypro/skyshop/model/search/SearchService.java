@@ -15,6 +15,7 @@ public class SearchService {
         this.storageService = storageService;
     }
 
+    //метод должен принимать строку для поиска и возвращать коллекцию объектов SearchResult
     public Collection<SearchResult> search(String pattern) {
         return storageService.searchableCollection().stream()
                 .filter(searchable -> searchable != null)

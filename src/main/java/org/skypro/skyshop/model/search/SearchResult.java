@@ -12,7 +12,7 @@ public class SearchResult {
         this.name = name;
         this.contentType = contentType;
     }
-
+    //метод принимает Searchable и возвращать SearchResult заполненными полями
     public static SearchResult fromSearchable(Searchable searchable) {
         return new SearchResult(searchable.getId().toString(),searchable.searchTerm(),searchable.contentType());
     }
