@@ -14,11 +14,12 @@ import java.util.UUID;
 public class ProductBasket {
     private final Map<UUID, Integer> basket = new HashMap<>();
 
-
+    //Метод добавления продукта в корзину
     public void addBasket(UUID id) {
         basket.put(id, basket.getOrDefault(id, 0) + 1);
     }
 
+    //Метод получения всех продуктов, которые сейчас есть в корзине
     public Map<UUID, Integer> getBasket() {
         return Collections.unmodifiableMap(basket);
     }

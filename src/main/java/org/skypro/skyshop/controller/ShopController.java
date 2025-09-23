@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.Collection;
 import java.util.UUID;
 
@@ -28,16 +29,19 @@ public class ShopController {
         this.basketService = basketService;
     }
 
+    //возвращаем коллекцию всех продуктов
     @GetMapping("/products")
     public Collection<Product> getAllProducts() {
         return storageService.getProductCollection();
     }
 
+    //возвращаем коллекцию всех статей
     @GetMapping("/articles")
     public Collection<Article> getAllArticles() {
         return storageService.getArticleCollection();
     }
 
+    //Метод принимает принимать аргумент pattern и возращает коллекцию объектов SearchResult
     @GetMapping("/search")
     public Collection<SearchResult> search(@RequestParam String pattern) {
         return searchService.search(pattern);

@@ -21,7 +21,7 @@ public class StorageService {
         initialization();
     }
 
-
+    //метод заполняющий мапы продуктами и статьями
     private void initialization() {
         Product product1 = new SimpleProduct(UUID.randomUUID(), "хлеб", 130);
         Product product2 = new DiscountedProduct(UUID.randomUUID(), "батон", 120, 40);
@@ -44,7 +44,7 @@ public class StorageService {
         articleMap.put(article2.getId(), article2);
         articleMap.put(article3.getId(), article3);
     }
-
+    //метод, который возвращает коллекцию Searchable путем объединения всех статей и всех продуктов в одну коллекцию внутри метода.
     public Set<Searchable> searchableCollection() {
         Set<Searchable> searchableCollection = new HashSet<>();
         searchableCollection.addAll(productMap.values());
@@ -52,12 +52,12 @@ public class StorageService {
         return searchableCollection;
     }
 
-
+    //метод возвращающий коллекцию всех продуктов
     public Collection<Product> getProductCollection() {
         return productMap.values();
     }
 
-
+    //метод возвращающий коллекцию всех статей
     public Collection<Article> getArticleCollection() {
         return articleMap.values();
     }
