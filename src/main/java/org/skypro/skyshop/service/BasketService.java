@@ -18,17 +18,17 @@ public class BasketService {
         this.storageService = storageService;
         this.productBasket = productBasket;
     }
-
+    //Метод добавления товара в корзину по id
     public void add(UUID id) {
         Product product = storageService.getProductById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Продукт не найден"));
+                .orElseThrow(() -> new NoSuchProductException());
         productBasket.addBasket(product.getId());
     }
-
+    //Метод отображения корзины пользователю
     public UserBasket getUserBasket() {
         List<BasketItem> basketItemList = productBasket.getBasket().entrySet().stream()
                 .map(it -> new BasketItem(storageService.getProductById(it.getKey())
-                        .orElseThrow(() -> new IllegalArgumentException("Продукт не найден"))
+                        .orElseThrow(() -> new NoSuchProductException())
                         , it.getValue()))
                 .toList();
         return new UserBasket(basketItemList);
